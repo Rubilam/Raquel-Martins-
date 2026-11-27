@@ -55,3 +55,43 @@ input,select{font:inherit;padding:.6rem .7rem;border:1px solid #BFB1DD;border-ra
 
 .acoes-fim{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
 .sub-titulo{margin:1.2rem 0 .1rem;font-size:1rem}
+
+/* ===== Responsivo: celular (iPhone) e tablet ===== */
+html{-webkit-text-size-adjust:100%}
+body{min-height:100dvh;overflow-wrap:break-word}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+/* 16px nos campos evita o zoom automático do iPhone ao tocar; 44px é o tamanho mínimo confortável de toque */
+input,select{font-size:1rem;font-weight:400;min-height:44px}
+input:not([type=checkbox]),select{width:100%;min-width:0}
+.acoes select,.linha-titulo input,.filtros select{width:auto}
+.filtros select{flex:0 0 220px}
+.btn,.aba{min-height:44px}
+.form label{min-width:0}
+.cartao h2{overflow-wrap:anywhere}
+.login{min-height:100dvh}
+/* áreas seguras do iPhone (notch e barra inferior) */
+.menu{padding-top:max(.6rem,env(safe-area-inset-top));padding-left:max(1.25rem,env(safe-area-inset-left));padding-right:max(1.25rem,env(safe-area-inset-right))}
+.conteudo,.titulo{padding-left:max(1.25rem,env(safe-area-inset-left));padding-right:max(1.25rem,env(safe-area-inset-right))}
+.trio{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+.numeros{grid-template-columns:repeat(2,1fr)}
+@media (min-width:701px){.numeros{grid-template-columns:repeat(3,1fr)}}
+.duas{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.numero strong{font-size:clamp(1.05rem,4.2vw,1.4rem);white-space:nowrap}
+
+@media (max-width:700px){
+  /* menu vira barra fixa no rodapé, ao alcance do polegar */
+  .menu{flex-wrap:nowrap;justify-content:space-between}
+  .menu-abas{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    background:var(--roxo);border-top:3px solid var(--ouro);
+    padding:.35rem max(.35rem,env(safe-area-inset-right)) calc(.35rem + env(safe-area-inset-bottom)) max(.35rem,env(safe-area-inset-left))}
+  .menu-abas button{border-radius:12px;font-size:.78rem;padding:.55rem .2rem;min-height:48px;text-align:center}
+  .pagina{padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .conteudo,.titulo{padding-left:max(1rem,env(safe-area-inset-left));padding-right:max(1rem,env(safe-area-inset-right))}
+  .cartao-topo,.item{flex-direction:column;align-items:stretch}
+  .cartao-topo .acoes,.item .acoes{width:100%}
+  .cartao-topo .acoes>*,.item .acoes>*{flex:1 1 auto}
+  .acoes-fim .btn{flex:1 1 100%}
+  .linha-titulo>.btn{width:100%}
+  .filtros select{flex:1 1 100%}
+  .form{padding:1rem}
+}

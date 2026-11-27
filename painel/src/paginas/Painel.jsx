@@ -79,7 +79,7 @@ export default function Painel() {
             <BarChart data={serie}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="mes" />
-              <YAxis tickFormatter={v => (v >= 1000 ? `${v / 1000}k` : v)} />
+              <YAxis width={44} tickFormatter={v => (v >= 1000 ? `${v / 1000}k` : v)} />
               <Tooltip formatter={v => brl(v)} />
               <Legend />
               <Bar dataKey="Receita" fill="#4B2A8A" />
